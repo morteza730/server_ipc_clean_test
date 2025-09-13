@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>view/form/Main.qml</file>
+        <file>view/constant/Constants.qml</file>
+        <file>view/constant/qmldir</file>
+        <file>view/component/CBackground.qml</file>
+        <file>view/component/CButton.qml</file>
+        <file>view/component/CLabel.qml</file>
+        <file>view/component/CMenu.qml</file>
+        <file>view/component/CPanel.qml</file>
+        <file>view/component/CRangeSpinBox.qml</file>
+        <file>view/component/CSubpanel.qml</file>
+        <file>view/component/CTextField.qml</file>
+        <file>view/component/qmldir</file>
+        <file>view/component/CTextArea.qml</file>
+        <file>view/form/InputPanel.qml</file>
+        <file>view/form/ControlPanel.qml</file>
+        <file>view/form/ResultPanel.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,10 @@
+module view.component
+CBackground 1.0 CBackground.qml
+CPanel 1.0 CPanel.qml
+CSubpanel 1.0 CSubpanel.qml
+CRangeSpinBox 1.0 CRangeSpinBox.qml
+CLabel 1.0 CLabel.qml
+CTextField 1.0 CTextField.qml
+CMenu 1.0 CMenu.qml
+CButton 1.0 CButton.qml
+CTextArea 1.0 CTextArea.qml
