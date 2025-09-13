@@ -1,0 +1,3 @@
+[submodule "external/small_IPC_QLocalServer"]
+	path = external/small_IPC_QLocalServer
+	url = https://github.com/morteza730/small_IPC_QLocalServer.git

@@ -1,0 +1,1 @@
+add_subdirectory(small_IPC_QLocalServer)
