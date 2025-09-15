@@ -49,6 +49,13 @@ public:
         emit serverDataUpdated();
     }
 
+    void appendClientData(const QString &data)
+    {
+        m_clientData += "\n";
+        m_clientData += data;
+        emit clientDataUpdated();
+    }
+
 private:
     QString m_clientData;
     QString m_serverData;

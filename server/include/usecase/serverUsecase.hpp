@@ -9,14 +9,16 @@ struct ServerUsecase;
 template <>
 struct ControllerData<ServerUsecase>
 {
-    ControllerData(std::string data): data{data} {}
+    ControllerData(int mode,std::string data): mode{mode}, data{data} {}
+    int mode;
     std::string data;
 };
 //================================== PresenterData =======================================
 template <>
 struct PresenterData<ServerUsecase>
 {
-    PresenterData(std::string data): data{data} {}
+    PresenterData(int mode,std::string data): mode{mode}, data{data} {}
+    int mode;
     std::string data;
 };
 //==================================== Usecase ==========================================

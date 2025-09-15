@@ -58,12 +58,14 @@ Presenter<ServerUsecase>::~Presenter() = default;
 
 void Presenter<ServerUsecase>::update(const PresenterData<ServerUsecase> &pData)
 {
-    helper->setClientData(QString::fromStdString(pData.data));
+    helper->appendClientData(
+        QString("mode is %1 and data is %2 \n").arg(QString::number(pData.mode)).arg(QString::fromStdString(pData.data))
+        );
 }
 
 void Presenter<ServerUsecase>::send(std::string data)
 {
-    PresenterData<ServerUsecase> pData(data);
+    PresenterData<ServerUsecase> pData(0,data);
     this->presenterDataChanged(pData);
 }
 

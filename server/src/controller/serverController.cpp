@@ -10,7 +10,10 @@ Controller<ServerUsecase>::~Controller() = default;
 
 void Controller<ServerUsecase>::receiveData(ipc::IPCMessage serverMessage)
 {
-    ControllerData<ServerUsecase> cData(serverMessage.data().toStdString());
+    ControllerData<ServerUsecase> cData(
+        static_cast<int>(serverMessage.mode()),
+        serverMessage.data().toStdString());
+
     this->controllerDataChanged(cData);
 }
 
@@ -42,8 +45,11 @@ void IPCVisitor::send(ipc::IPCMessage message)
 
 void IPCVisitor::receive()
 {
-    ipc::IPCMessage msg = server->readMessage("client");
-    controller->receiveData(msg);
+    for (int index = 0; index < server->getMessageCount("client"); index++)
+    {
+        ipc::IPCMessage msg = server->readMessage("client");
+        controller->receiveData(msg);
+    }
 
 }
 

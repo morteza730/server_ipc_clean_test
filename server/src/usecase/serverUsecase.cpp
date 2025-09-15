@@ -6,13 +6,13 @@ ServerUsecase::ServerUsecase() : IUsecase<ServerUsecase>() {}
 
 void ServerUsecase::handleControllerDataChanged(ControllerData<ServerUsecase> cData)
 {
-    PresenterData<ServerUsecase> pData{cData.data};
+    PresenterData<ServerUsecase> pData{cData.mode,cData.data};
     presenter->update(pData);
 }
 
 void ServerUsecase::handlePresenterDataChanged(PresenterData<ServerUsecase> pData)
 {
-    ControllerData<ServerUsecase> cData{pData.data};
+    ControllerData<ServerUsecase> cData{pData.mode,pData.data};
     controller->update(cData);
 }
 
