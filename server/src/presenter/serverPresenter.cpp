@@ -33,7 +33,7 @@ inline std::string sample = R"json(
             "TerminalCardID": 105634,
             "Name": "فروشگاه صادقی",
             "Price": 1000,
-            "Description": "payid=1;title=نام",
+            "Description": "payid=1;title=نام;count=3;maxcount=5",
             "TypeName": "none",
             "Code": "000007000772"
         }

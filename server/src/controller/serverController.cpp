@@ -45,7 +45,7 @@ void IPCVisitor::send(ipc::IPCMessage message)
 
 void IPCVisitor::receive()
 {
-    for (int index = 0; index < server->getMessageCount("client"); index++)
+    while (server->getMessageCount("client") > 0)
     {
         ipc::IPCMessage msg = server->readMessage("client");
         controller->receiveData(msg);
