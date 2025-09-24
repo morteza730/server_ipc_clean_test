@@ -3,9 +3,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "usecase/serverUsecase.hpp"
-#include "presenter/serverPresenter.hpp"
-#include "controller/serverController.hpp"
+#include "usecase/vasInfoUsecase.hpp"
+#include "presenter/vasInfoPresenter.hpp"
+#include "controller/vasInfoController.hpp"
 
 
 Application *getApplication(int &argc, char **argv)
@@ -32,7 +32,7 @@ void Server::initializeInternal()
 
 void Server::initPresenters()
 {
-    static std::unique_ptr<Presenter<ServerUsecase>> p = make_presenter<ServerUsecase>();
+    static std::unique_ptr<Presenter<VasInfoUsecase>> p = make_presenter<VasInfoUsecase>();
 }
 
 void Server::initQMLEngine()

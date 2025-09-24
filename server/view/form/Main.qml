@@ -4,11 +4,13 @@ import QtQuick.Controls 2.15
 import view.constant 1.0
 import view.component 1.0
 
-import Backend 1.0
+import Backend.Viewcontrol 1.0
+import Backend.Viewmodel 1.0
 
 ApplicationWindow {
     id:mainPage
-    property var presenter: Presenter
+    property var vasInfo: VasInfo
+    property var viewmodelInterface: ViewmodelInterface
 
     title: "Server"
     width: Constant.width
@@ -37,7 +39,7 @@ ApplicationWindow {
                 top: parent.top
                 bottom: controlPanel.top
             }
-            text: presenter.serverData
+            text: viewmodelInterface.vasInfo.value
         }
 
         ControlPanel {
@@ -50,7 +52,7 @@ ApplicationWindow {
             height: Constant.smallHeight
 
             onSendClicked: {
-                presenter.send()
+                vasInfo.send()
             }
         }
 
@@ -62,7 +64,7 @@ ApplicationWindow {
                 bottom: parent.bottom
             }
             height: Constant.largeHeight
-            text: presenter.clientData
+            text: viewmodelInterface.trxInfo.value
         }
     }
 }
