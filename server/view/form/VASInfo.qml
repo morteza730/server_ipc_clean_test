@@ -23,6 +23,10 @@ CPanel {
         }
         title: "VAS INFO"
         text: viewmodelInterface.vasInfo.value
+
+        onTextChanged: {
+            viewmodelInterface.vasInfo.value = text
+        }
     }
 
     ControlPanel {

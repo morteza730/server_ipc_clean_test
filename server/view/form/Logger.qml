@@ -17,5 +17,9 @@ CPanel {
         }
         height: Constant.largeHeight
         text: viewmodelInterface.logInfo.value
+
+        onTextChanged: {
+            viewmodelInterface.logInfo.value = text
+        }
     }
 }

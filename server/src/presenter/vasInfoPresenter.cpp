@@ -26,7 +26,7 @@ inline std::string vasInfoSample = R"json(
             "TerminalCardID": 105632,
             "Name": "فروشگاه دهدار",
             "Price": 0,
-            "Description": "payid=1;title=نام",
+            "Description": "payid=1;title=نام;multiple=1",
             "TypeName": "none",
             "Code": "000007000772"
         },
