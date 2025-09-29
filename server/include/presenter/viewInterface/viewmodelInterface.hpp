@@ -14,8 +14,9 @@ class ViewmodelInterface: public QObject
     Q_OBJECT
 
     Q_PROPERTY(NamedValue *vasInfo READ vasInfo CONSTANT)
-    Q_PROPERTY(NamedValue *trxInfo READ trxInfo CONSTANT)
-    Q_PROPERTY(NamedValue *bcrRecuestInfo READ bcrRecuestInfo CONSTANT)
+    Q_PROPERTY(NamedValue *logInfo READ logInfo CONSTANT)
+    Q_PROPERTY(NamedValue *bcrRecuestState READ bcrRecuestState CONSTANT)
+    Q_PROPERTY(NamedValue *bcrReceiveInfo READ bcrReceiveInfo CONSTANT)
 
 public:
     ViewmodelInterface(ViewmodelRegistry& registry);
@@ -24,10 +25,12 @@ private:
     ViewmodelRegistry &registry;
 
     NamedValue *vasInfo() const { return m_vasInfo.get(); }
-    NamedValue *trxInfo() const { return m_trxInfo.get(); }
-    NamedValue *bcrRecuestInfo() const { return m_bcrRecuestInfo.get(); }
+    NamedValue *logInfo() const { return m_logInfo.get(); }
+    NamedValue *bcrRecuestState() const { return m_bcrRecuestState.get(); }
+    NamedValue *bcrReceiveInfo() const { return m_bcrReceiveInfo.get(); }
 
     std::shared_ptr<NamedValue> m_vasInfo;
-    std::shared_ptr<NamedValue> m_trxInfo;
-    std::shared_ptr<NamedValue> m_bcrRecuestInfo;
+    std::shared_ptr<NamedValue> m_logInfo;
+    std::shared_ptr<NamedValue> m_bcrRecuestState;
+    std::shared_ptr<NamedValue> m_bcrReceiveInfo;
 };

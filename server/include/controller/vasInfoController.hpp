@@ -7,15 +7,15 @@
 
 
 template<>
-struct Controller<VasInfoUsecase>: public IController<VasInfoUsecase>
+struct Controller<VASInfo>: public IController<VASInfo>
 {
     Controller();
     ~Controller();
 
     void sendData(ipc::IPCMessage serverMessage);
-    void receiveData(ipc::IPCMessage serverMessage);
-    virtual void update(const ControllerData<VasInfoUsecase> &cData) override final;
+    void receiveData(ipc::IPCMessage serverMessage) {}
+    virtual void update(const ControllerData<VASInfo> &cData) override final;
 
 private:
-    std::unique_ptr<IPCVisitor<VasInfoUsecase>> ipcVisitor;
+    std::unique_ptr<IPCVisitor<VASInfo>> ipcVisitor;
 };

@@ -10,7 +10,7 @@ struct BCRRequest;
 //================================== ControllerData ======================================
 struct BCRRequestFlag
 {
-    std::string status;
+    std::string status = "";
 };
 
 template <>
@@ -26,7 +26,7 @@ private:
 //================================== PresenterData =======================================
 struct BCRRequestState
 {
-    std::string data;
+    std::string data = "";
 };
 
 template <>

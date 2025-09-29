@@ -6,6 +6,7 @@ import view.component 1.0
 
 CPanel{
     property alias text: inputText.text
+    property alias title: title.text
 
     CLabel {
         id: title
@@ -15,7 +16,6 @@ CPanel{
             left: parent.left
             margins: Constant.large
         }
-        text: "MESSAGE TO SEND"
     }
 
     CTextArea {

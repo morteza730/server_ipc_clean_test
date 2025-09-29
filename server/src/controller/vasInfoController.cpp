@@ -2,35 +2,20 @@
 
 inline const QString clientUID = "client";
 
-Controller<VasInfoUsecase>::Controller()
-    : IController<VasInfoUsecase>(),
-    ipcVisitor{std::make_unique<IPCVisitor<VasInfoUsecase>>(this)}
+Controller<VASInfo>::Controller()
+    : IController<VASInfo>(),
+    ipcVisitor{std::make_unique<IPCVisitor<VASInfo>>(this)}
 {}
 
-Controller<VasInfoUsecase>::~Controller() = default;
+Controller<VASInfo>::~Controller() = default;
 
-void Controller<VasInfoUsecase>::receiveData(ipc::IPCMessage serverMessage)
-{
-    switch (serverMessage.mode()) {
-    case CommandMode::Trx:
-    {
-        VASDetails details;
-        details.data = serverMessage.data().toStdString();
-        ControllerData<VasInfoUsecase> cData(details);
-        this->controllerDataChanged(cData);
-    }break;
-    default:
-        break;
-    }
-}
-
-void Controller<VasInfoUsecase>::update(const ControllerData<VasInfoUsecase> &cData)
+void Controller<VASInfo>::update(const ControllerData<VASInfo> &cData)
 {
     ipc::IPCMessage message(CommandMode::VasType,QString::fromStdString(cData.get().data));
     sendData(message);
 }
 
-void Controller<VasInfoUsecase>::sendData(ipc::IPCMessage serverMessage)
+void Controller<VASInfo>::sendData(ipc::IPCMessage serverMessage)
 {
     ipcVisitor->send(clientUID,serverMessage);
 }

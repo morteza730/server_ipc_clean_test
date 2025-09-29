@@ -8,3 +8,5 @@ CTextField 1.0 CTextField.qml
 CMenu 1.0 CMenu.qml
 CButton 1.0 CButton.qml
 CTextArea 1.0 CTextArea.qml
+CLed 1.0 CLed.qml
+CButtonGroup 1.0 CButtonGroup.qml

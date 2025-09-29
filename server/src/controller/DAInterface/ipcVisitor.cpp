@@ -1,6 +1,5 @@
 #include "IPCInterface/serverInterface.hpp"
 #include "controller/DAInterface/ipcVisitor.hpp"
-#include <iostream>
 
 std::unique_ptr<ipc::ServerInterface> IPCInterface::server = nullptr;
 std::atomic<int> IPCInterface::instance_count{0};

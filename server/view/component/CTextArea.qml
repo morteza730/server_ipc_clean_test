@@ -18,7 +18,7 @@ CSubpanel {
         }
         boundsBehavior: Flickable.StopAtBounds
         interactive: true
-        contentHeight: textArea.contentHeight + Constant.average
+        contentHeight: textArea.contentHeight + Constant.large
         contentWidth: textArea.contentWidth + Constant.small
         clip: true
 

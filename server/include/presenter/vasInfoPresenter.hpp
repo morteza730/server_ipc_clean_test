@@ -7,33 +7,33 @@
 
 #include <QObject>
 
-class PresenterVasInfoHelper;
+class PresenterVASInfoHelper;
 
 template<>
-struct Presenter<VasInfoUsecase> : public IPresenter<VasInfoUsecase>
+struct Presenter<VASInfo> : public IPresenter<VASInfo>
 {
-    Presenter(std::unique_ptr<ControllerBoundary<VasInfoUsecase>> controller, ViewmodelRegistry &registry = ViewmodelRegistry::get());
+    Presenter(std::unique_ptr<ControllerBoundary<VASInfo>> controller, ViewmodelRegistry &registry = ViewmodelRegistry::get());
     ~Presenter();
 
-    virtual void update(const PresenterData<VasInfoUsecase>& pData) override final;
-    void sendVasInfo();
+    virtual void update(const PresenterData<VASInfo>& pData) override final {}
+    void sendVASInfo();
 
 private:
     ViewmodelRegistry& registry;
-    std::unique_ptr<PresenterVasInfoHelper> helper;
+    std::unique_ptr<PresenterVASInfoHelper> helper;
 };
 
-class PresenterVasInfoHelper: public QObject
+class PresenterVASInfoHelper: public QObject
 {
     Q_OBJECT
 
 public:
-    PresenterVasInfoHelper(Presenter<VasInfoUsecase>& presenter) : presenter{presenter} {}
+    PresenterVASInfoHelper(Presenter<VASInfo>& presenter) : presenter{presenter} {}
 
-    Q_INVOKABLE void send() {presenter.sendVasInfo();}
+    Q_INVOKABLE void send() {presenter.sendVASInfo();}
 
 private:
-    Presenter<VasInfoUsecase> &presenter;
+    Presenter<VASInfo> &presenter;
 };
 
 

@@ -15,7 +15,7 @@ CMenu {
             bottom: parent.bottom
             margins: Constant.average
         }
-        width: Constant.smallWidth
+        width: Constant.averageWidth
         text: "SEND"
 
         onClicked: {

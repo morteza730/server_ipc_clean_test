@@ -1,23 +1,14 @@
 #include "usecase/vasInfoUsecase.hpp"
 
 
-VasInfoUsecase::VasInfoUsecase() : IUsecase<VasInfoUsecase>() {}
+VASInfo::VASInfo() : IUsecase<VASInfo>() {}
 
-
-void VasInfoUsecase::handleControllerDataChanged(ControllerData<VasInfoUsecase> cData)
-{
-    VASRawInfo vasInfo;
-    vasInfo.info = "vas info is: " + cData.get().data;
-    PresenterData<VasInfoUsecase> pData{vasInfo};
-    presenter->update(pData);
-}
-
-void VasInfoUsecase::handlePresenterDataChanged(PresenterData<VasInfoUsecase> pData)
+void VASInfo::handlePresenterDataChanged(PresenterData<VASInfo> pData)
 {
     VASDetails details;
     details.data = pData.get().info;
-    ControllerData<VasInfoUsecase> cData{details};
+    ControllerData<VASInfo> cData{details};
     controller->update(cData);
 }
 
-VasInfoUsecase::~VasInfoUsecase() = default;
+VASInfo::~VASInfo() = default;

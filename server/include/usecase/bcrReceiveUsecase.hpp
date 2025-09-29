@@ -10,7 +10,7 @@ struct BCRReceive;
 //================================== ControllerData ======================================
 struct BCRReceiveData
 {
-    std::string data;
+    std::string data = "";
 };
 
 template <>
@@ -24,27 +24,27 @@ private:
     BCRReceiveData bcrData;
 };
 //================================== PresenterData =======================================
-struct BCRInfo
+struct BCRReceiveInfo
 {
-    std::string info;
+    std::string info = "";
 };
 
 template <>
 struct PresenterData<BCRReceive>
 {
-    PresenterData(const BCRInfo &bcrInfo): bcrInfo{bcrInfo} {}
+    PresenterData(const BCRReceiveInfo &bcrInfo): bcrInfo{bcrInfo} {}
 
-    const BCRInfo &get() const {return bcrInfo;}
+    const BCRReceiveInfo &get() const {return bcrInfo;}
 
 private:
-    BCRInfo bcrInfo;
+    BCRReceiveInfo bcrInfo;
 };
 //==================================== Usecase ==========================================
 struct BCRReceive : public IUsecase<BCRReceive>
 {
     BCRReceive() : IUsecase<BCRReceive>() {}
 
-    virtual void handleControllerDataChanged(ControllerData<BCRReceive> cData) override;
+    virtual void handleControllerDataChanged(ControllerData<BCRReceive> cData) override {}
 
-    virtual void handlePresenterDataChanged(PresenterData<BCRReceive> pData) override {}
+    virtual void handlePresenterDataChanged(PresenterData<BCRReceive> pData) override;
 };

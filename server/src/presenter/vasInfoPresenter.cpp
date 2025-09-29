@@ -3,7 +3,7 @@
 #include <QQmlEngine>
 
 
-inline std::string sample = R"json(
+inline std::string vasInfoSample = R"json(
 {
     "TerminalCardID": 105632,
     "ServiceTypeId": 15,
@@ -48,37 +48,26 @@ inline std::string sample = R"json(
 )json";
 
 
-Presenter<VasInfoUsecase>::Presenter(std::unique_ptr<ControllerBoundary<VasInfoUsecase> > controller, ViewmodelRegistry &registry)
-    : IPresenter<VasInfoUsecase>(std::move(controller)),
+Presenter<VASInfo>::Presenter(std::unique_ptr<ControllerBoundary<VASInfo> > controller, ViewmodelRegistry &registry)
+    : IPresenter<VASInfo>(std::move(controller)),
     registry{registry},
-    helper{std::make_unique<PresenterVasInfoHelper>(*this)}
+    helper{std::make_unique<PresenterVASInfoHelper>(*this)}
 {
-    qmlRegisterSingletonInstance<PresenterVasInfoHelper>("Backend.Viewcontrol", 1, 0, "VasInfo", helper.get());
+    qmlRegisterSingletonInstance<PresenterVASInfoHelper>("Backend.Viewcontrol", 1, 0, "VASInfo", helper.get());
 
     std::shared_ptr<NamedValue> vasInfo = registry.loadViewmodel<NamedValue>("vas_info");
-    vasInfo->setValue(QString::fromStdString(sample));
+    vasInfo->setValue(QString::fromStdString(vasInfoSample));
 }
 
-Presenter<VasInfoUsecase>::~Presenter() = default;
+Presenter<VASInfo>::~Presenter() = default;
 
-void Presenter<VasInfoUsecase>::update(const PresenterData<VasInfoUsecase> &pData)
-{
-    std::shared_ptr<NamedValue> trxInfo = registry.loadViewmodel<NamedValue>("trx_info");
-
-    QString info;
-    info += trxInfo->getValue<QString>();
-    info += QString("data is %1 \n").arg(QString::fromStdString(pData.get().info));
-
-    trxInfo->setValue(info);
-}
-
-void Presenter<VasInfoUsecase>::sendVasInfo()
+void Presenter<VASInfo>::sendVASInfo()
 {
     std::shared_ptr<NamedValue> vasInfo = registry.loadViewmodel<NamedValue>("vas_info");
 
     VASRawInfo rawInfo;
     rawInfo.info = vasInfo->getValue<QString>().toStdString();
 
-    PresenterData<VasInfoUsecase> pData(rawInfo);
+    PresenterData<VASInfo> pData(rawInfo);
     this->presenterDataChanged(pData);
 }

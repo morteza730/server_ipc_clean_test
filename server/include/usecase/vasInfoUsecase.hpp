@@ -3,7 +3,7 @@
 #include "core/iusecase.hpp"
 #include <string>
 
-struct VasInfoUsecase;
+struct VASInfo;
 
 //================================== ControllerData ======================================
 struct VASDetails
@@ -12,7 +12,7 @@ struct VASDetails
 };
 
 template <>
-struct ControllerData<VasInfoUsecase>
+struct ControllerData<VASInfo>
 {
     ControllerData(const VASDetails &details): details{details} {}
     const VASDetails &get() const {return details;}
@@ -27,7 +27,7 @@ struct VASRawInfo
 };
 
 template <>
-struct PresenterData<VasInfoUsecase>
+struct PresenterData<VASInfo>
 {
     PresenterData(const VASRawInfo &info): info{info} {}
     const VASRawInfo &get() const {return info;}
@@ -36,12 +36,12 @@ private:
     VASRawInfo info;
 };
 //==================================== Usecase ==========================================
-struct VasInfoUsecase : public IUsecase<VasInfoUsecase>
+struct VASInfo : public IUsecase<VASInfo>
 {
-    VasInfoUsecase();
-    ~VasInfoUsecase();
+    VASInfo();
+    ~VASInfo();
 
-    virtual void handleControllerDataChanged(ControllerData<VasInfoUsecase> cData) override;
+    virtual void handleControllerDataChanged(ControllerData<VASInfo> cData) override {}
 
-    virtual void handlePresenterDataChanged(PresenterData<VasInfoUsecase> pData) override;
+    virtual void handlePresenterDataChanged(PresenterData<VASInfo> pData) override;
 };

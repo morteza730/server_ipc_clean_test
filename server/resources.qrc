@@ -16,5 +16,13 @@
         <file>view/form/InputPanel.qml</file>
         <file>view/form/ControlPanel.qml</file>
         <file>view/form/ResultPanel.qml</file>
+        <file>view/component/CLed.qml</file>
+        <file>view/form/ButtonPanel.qml</file>
+        <file>view/form/VASInfo.qml</file>
+        <file>view/form/BCRData.qml</file>
+        <file>view/form/WarningPanel.qml</file>
+        <file>view/component/CButtonGroup.qml</file>
+        <file>view/form/BCRRequestAck.qml</file>
+        <file>view/form/Logger.qml</file>
     </qresource>
 </RCC>

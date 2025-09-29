@@ -4,13 +4,8 @@ import QtQuick.Controls 2.15
 import view.constant 1.0
 import view.component 1.0
 
-import Backend.Viewcontrol 1.0
-import Backend.Viewmodel 1.0
-
 ApplicationWindow {
     id:mainPage
-    property var vasInfo: VasInfo
-    property var viewmodelInterface: ViewmodelInterface
 
     title: "Server"
     width: Constant.width
@@ -24,47 +19,54 @@ ApplicationWindow {
     CBackground {
     }
 
-    CPanel {
-        id:panel
-        anchors {
-            fill:parent
+    Row {
+        anchors{
+            fill: parent
             margins: Constant.small
         }
+        spacing: Constant.small
 
-        InputPanel {
-            id: inputPanel
-            anchors {
-                right: parent.right
-                left: parent.left
-                top: parent.top
-                bottom: controlPanel.top
+        Column {
+            width:parent.width*(1/5)
+            height: parent.height
+
+            ButtonPanel {
+                id:preferenceButtonPanel
+                width:parent.width
+                height: parent.height*(1/2)
             }
-            text: viewmodelInterface.vasInfo.value
-        }
 
-        ControlPanel {
-            id: controlPanel
-            anchors {
-                right: parent.right
-                left: parent.left
-                bottom: resultPanel.top
-            }
-            height: Constant.smallHeight
-
-            onSendClicked: {
-                vasInfo.send()
+            WarningPanel {
+                id:preferenceWarningPanel
+                width:parent.width
+                height: parent.height*(1/2)
             }
         }
 
-        ResultPanel {
-            id: resultPanel
-            anchors {
-                right: parent.right
-                left: parent.left
-                bottom: parent.bottom
+        Item {
+            width:parent.width*(4/5)
+            height: parent.height
+            anchors.margins: Constant.average
+
+            Loader {
+                id: loader
+                clip: true
+                anchors {
+                    top: parent.top
+                    bottom: logger.top
+                    bottomMargin: Constant.average
+                }
+                width:parent.width
             }
-            height: Constant.largeHeight
-            text: viewmodelInterface.trxInfo.value
+
+            Logger {
+                id: logger
+                width:parent.width
+                height: Constant.largeHeight
+                anchors {
+                    bottom: parent.bottom
+                }
+            }
         }
     }
 }
