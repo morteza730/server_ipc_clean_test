@@ -22,7 +22,7 @@ CPanel {
             bottom: controlPanel.top
         }
         title: "VAS INFO"
-        text: viewmodelInterface.vasInfo.value
+        text: (viewmodelInterface.vasInfo.value !== text)? viewmodelInterface.vasInfo.value: text;
 
         onTextChanged: {
             viewmodelInterface.vasInfo.value = text

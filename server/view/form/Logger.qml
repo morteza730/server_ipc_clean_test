@@ -16,7 +16,7 @@ CPanel {
             bottom: parent.bottom
         }
         height: Constant.largeHeight
-        text: viewmodelInterface.logInfo.value
+        text: (viewmodelInterface.logInfo.value !== text)? viewmodelInterface.logInfo.value: text;
 
         onTextChanged: {
             viewmodelInterface.logInfo.value = text

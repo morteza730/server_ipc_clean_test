@@ -26,7 +26,7 @@ inline std::string vasInfoSample = R"json(
             "TerminalCardID": 105632,
             "Name": "فروشگاه دهدار",
             "Price": 0,
-            "Description": "payid=1;title=نام;multiple=1",
+            "Description": "payid=0;title=نام;multiple=1",
             "TypeName": "none",
             "Code": "000007000772"
         },
@@ -34,7 +34,7 @@ inline std::string vasInfoSample = R"json(
             "TerminalCardID": 105634,
             "Name": "فروشگاه صادقی",
             "Price": 1000,
-            "Description": "payid=1;title=نام;count=3;maxcount=5",
+            "Description": "payid=1;title=نام اول;complex=1;title2=دومین نام;count=3;maxcount=5",
             "TypeName": "none",
             "Code": "000007000772"
         }

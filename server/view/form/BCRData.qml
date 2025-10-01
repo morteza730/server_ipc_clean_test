@@ -35,7 +35,7 @@ CPanel {
             bottom: controlPanel.top
         }
         title: "BCR DATA"
-        text: viewmodelInterface.bcrReceiveInfo.value
+        text: (viewmodelInterface.bcrReceiveInfo.value !== text)? viewmodelInterface.bcrReceiveInfo.value: text;
 
         onTextChanged: {
             viewmodelInterface.bcrReceiveInfo.value = text
