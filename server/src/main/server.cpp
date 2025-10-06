@@ -19,6 +19,10 @@
 #include "presenter/loggerPresenter.hpp"
 #include "controller/loggerController.hpp"
 
+#include "usecase/verificationUsecase.hpp"
+#include "presenter/verificationPresenter.hpp"
+#include "controller/verificationController.hpp"
+
 Application *getApplication(int &argc, char **argv)
 {
     static Server instance(argc, argv);
@@ -46,6 +50,7 @@ void Server::initPresenters()
     static std::unique_ptr<Presenter<BCRRequest>> bcrRecuest = make_presenter<BCRRequest>();
     static std::unique_ptr<Presenter<BCRReceive>> bcrReceive = make_presenter<BCRReceive>();
     static std::unique_ptr<Presenter<Logger>> logger = make_presenter<Logger>();
+    static std::unique_ptr<Presenter<Verification>> verification = make_presenter<Verification>();
 }
 
 void Server::initQMLEngine()

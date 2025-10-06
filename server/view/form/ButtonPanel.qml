@@ -13,6 +13,7 @@ Item {
             id:model
             ListElement{name:"VAS Info";page:"VASInfo.qml"}
             ListElement{name:"BCR Data";page:"BCRData.qml"}
+            ListElement{name:"Verification";page:"Verification.qml"}
         }
 
         CButtonGroup{
