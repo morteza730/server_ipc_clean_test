@@ -24,13 +24,18 @@ IPCInterface::~IPCInterface()
 
 void IPCInterface::receiveData(const QString &clientUID)
 {
-    static ipc::IPCMessage cachedMessage;
+    static std::vector<ipc::IPCMessage> cashedMessages;
+
+    if (server->getMessageCount(clientUID) > 0)
+        cashedMessages.clear();
 
     while (server->getMessageCount(clientUID) > 0)
     {
-        cachedMessage = server->readMessage(clientUID);
-        receiveDataInternal(cachedMessage);
+        cashedMessages.push_back(server->readMessage(clientUID));
     }
+
+    for (auto cashedMessage: cashedMessages)
+        receiveDataInternal(cashedMessage);
 }
 
 void IPCInterface::newClientConnected()
