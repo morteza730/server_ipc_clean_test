@@ -29,8 +29,8 @@ void IPCInterface::receiveData(const QString &clientUID)
     while (server->getMessageCount(clientUID) > 0)
     {
         cachedMessage = server->readMessage(clientUID);
+        receiveDataInternal(cachedMessage);
     }
-    receiveDataInternal(cachedMessage);
 }
 
 void IPCInterface::newClientConnected()
